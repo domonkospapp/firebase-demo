@@ -2,6 +2,8 @@
 import { initializeApp } from "firebase/app";
 // TODO: Add SDKs for Firebase products that you want to use
 // https://firebase.google.com/docs/web/setup#available-libraries
+import { getFirestore, collection, getDocs } from "firebase/firestore"
+import { useState ,useEffect} from "preact/hooks";
 
 // Your web app's Firebase configuration
 const firebaseConfig = {
@@ -14,16 +16,26 @@ const firebaseConfig = {
 };
 
 const Firebase = () => {
-    // Initialize Firebase
-    const app = initializeApp(firebaseConfig);
-    console.log(app)
-	return (
+    initializeApp(firebaseConfig);
+    const[books, setBooks] = useState([])
+    const db = getFirestore();
+    const collectionRef = collection(db, "books")
+
+    useEffect(() => {
+      getDocs(collectionRef).then(snapshot =>{
+        setBooks(snapshot.docs.map(doc => ({id: doc.id, ...doc.data()})))
+      })  
+    }, []);
+  
+    return (
 		<div>
 			<h1>Home</h1>
-			<p>This is the Firebase component.</p>
+			<p>List of books</p>
+      {
+        books.map((book, index) => {return <p key={index}>{`${book.title} ${book.author} (${book.id})`}</p>})
+      }
 		</div>
 	)
 };
 
 export default Firebase;
-
