@@ -1,5 +1,6 @@
 import { collection, getDocs } from "firebase/firestore"
 import { useState ,useEffect} from "preact/hooks";
+import CreateBook from "../../components/CreateBook";
 import db from "../../utils/firebase";
 
 const Firebase = () => {
@@ -19,6 +20,7 @@ const Firebase = () => {
       {
         books.map((book, index) => {return <p key={index}>{`${book.title} ${book.author} (${book.id})`}</p>})
       }
+      <CreateBook />
 		</div>
 	)
 };
