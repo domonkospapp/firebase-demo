@@ -21,7 +21,7 @@ const CreateBook = () => {
     return (
         <form onSubmit={handleSubmit}>
             Title:<input type="title" ref={title} /><br />
-            Name:<input type="author" ref={author} /><br />
+            Author:<input type="author" ref={author} /><br />
             <input type="submit" value="Submit" />
         </form>
 	)
