@@ -1,15 +1,22 @@
+import { addDoc, collection } from "@firebase/firestore";
 import { useRef} from "preact/hooks";
+import db from "../utils/firebase";
+
 
 const CreateBook = () => {
+    const collectionRef = collection(db, "books")
     const title = useRef(null);
     const author = useRef(null);
 
     const handleSubmit = (event) => {
-        console.log(`A title was submitted: ${  title.current.value}`);
-        console.log(`A author was submitted: ${  author.current.value}`);
         event.preventDefault();
-    
+        addDoc(collectionRef, {title: title.current.value, author: author.current.value}).then(resetForm);
     };
+
+    const resetForm = ()=> {
+        title.current.value = "";
+        author.current.value = "";
+    }
 
     return (
         <>
