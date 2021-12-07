@@ -1,5 +1,5 @@
-import { collection, getDocs } from "firebase/firestore"
-import { useState ,useEffect} from "preact/hooks";
+import { collection, onSnapshot } from "firebase/firestore"
+import { useState } from "preact/hooks";
 import db from "../utils/firebase";
 import BookRemoveButton from "./BookRemoveButton";
 
@@ -7,11 +7,11 @@ const BookList = () => {
     const[books, setBooks] = useState([])
     const collectionRef = collection(db, "books")
 
-    useEffect(() => {
-      getDocs(collectionRef).then(snapshot =>{
+    const updateBooks = (snapshot) => {
         setBooks(snapshot.docs.map(doc => ({id: doc.id, ...doc.data()})))
-      })  
-    }, []);
+    }
+
+    onSnapshot(collectionRef, updateBooks)
 
     const renderBook = (book, index) => (
         <p key={index}>
