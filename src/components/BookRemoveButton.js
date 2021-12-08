@@ -1,5 +1,5 @@
 import { deleteDoc, doc } from "firebase/firestore"
-import db from "../utils/firebase";
+import { db } from "../utils/firebase";
 
 const BookRemoveButton = ({bookId}) => {
     const deleteBook = () => {

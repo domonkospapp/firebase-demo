@@ -1,6 +1,6 @@
 import { collection, onSnapshot, query, where } from "firebase/firestore"
 import { useEffect, useState } from "preact/hooks";
-import db from "../utils/firebase";
+import { db } from "../utils/firebase";
 import BookOpenButton from "./BookOpenButton";
 import BookRemoveButton from "./BookRemoveButton";
 

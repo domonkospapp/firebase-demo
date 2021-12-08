@@ -1,6 +1,6 @@
 import { addDoc, collection } from "@firebase/firestore";
 import { useRef} from "preact/hooks";
-import db from "../utils/firebase";
+import { db } from "../utils/firebase";
 
 
 const CreateBook = () => {
