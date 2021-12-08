@@ -4,6 +4,7 @@ import db from "../../utils/firebase";
 import style from './style.css';
 import BookDetails from "../../components/BookDetails"
 import BookEdit from "../../components/BookEdit";
+import { route } from "preact-router";
 
 const BookDetailsPage = ({bookId}) => {
     const[book, setBook] = useState(null);
@@ -12,6 +13,7 @@ const BookDetailsPage = ({bookId}) => {
 
     const startEditing = () => setEditing(true);
     const cancelEditing = () => setEditing(false);
+    const navigateBack = () => route("/firebase");
     const updateBook = (newBook) => updateDoc(docRef, newBook)
 
     useEffect(() => {
@@ -26,6 +28,7 @@ const BookDetailsPage = ({bookId}) => {
                     : <BookDetails {...book} startEditing={startEditing} />
                 : <p>Loading...</p>
             }
+            <button onClick={navigateBack}>Go back</button>
         </div>
     );
 }
