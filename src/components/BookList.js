@@ -20,7 +20,6 @@ const BookList = ({authorFilter}) => {
     const renderBook = (book, index) => (
         <p key={index}>
             {`${book.title} ${book.author} `}
-            <button onClick={open}>open</button>
             <BookOpenButton bookId={book.id} />
             <BookRemoveButton bookId={book.id} />
         </p>
