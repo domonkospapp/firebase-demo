@@ -7,6 +7,7 @@ import Header from './header';
 import Home from '../routes/home';
 import Profile from '../routes/profile';
 import Firebase from '../routes/firebase';
+import BookDetailsPage from '../routes/firebase/BookDetailesPage';
 
 const App = () => (
 	<div id="app">
@@ -16,6 +17,7 @@ const App = () => (
 			<Profile path="/profile/" user="me" />
 			<Profile path="/profile/:user" />
 			<Firebase path="/firebase/" />
+			<BookDetailsPage path="/firebase/:bookId" />
 		</Router>
 	</div>
 )
