@@ -1,6 +1,7 @@
 import BookList from "../../components/BookList";
 import BookCreate from "../../components/BookCreate";
 import { useState } from "preact/hooks";
+import style from './style.css';
 
 const Firebase = () => {
   const [authorFilter, setAuthorFilter] = useState(null)
@@ -10,7 +11,7 @@ const Firebase = () => {
   }
 
   return (
-    <div>
+    <div className={style.firebase}>
       <h1>Books</h1>
       <label>Author filter: </label>
       <input 
