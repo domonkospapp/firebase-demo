@@ -1,7 +1,6 @@
 import { doc, onSnapshot, updateDoc } from "@firebase/firestore";
 import { useEffect, useState } from "preact/hooks";
 import { db } from "../../utils/firebase";
-import style from './style.css';
 import BookDetails from "../../components/BookDetails"
 import BookEdit from "../../components/BookEdit";
 import { route } from "preact-router";
@@ -21,7 +20,7 @@ const BookDetailsPage = ({bookId}) => {
     },[])
 
     return (
-        <div className={style.firebase}>
+        <div>
             {book 
                 ? editing 
                     ? <BookEdit {...book} updateBook={updateBook} cancelEditing={cancelEditing} />

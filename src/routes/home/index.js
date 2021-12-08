@@ -1,5 +1,4 @@
 import { useState } from 'preact/hooks';
-import style from './style.css';
 
 const Home = () => {
 	const [name, setName] = useState(null);
@@ -14,7 +13,7 @@ const Home = () => {
 	}
 
 	return (
-		<div class={style.home}>
+		<div>
 			<h1>Home</h1>
 			<p>This is the Home component.</p>
 			{name && <h1>Hello, {name}!</h1>}
