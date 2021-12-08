@@ -21,11 +21,14 @@ const RegistrationPage = () => {
     const onRegistrationError = error=> console.log(error.message);
 
     return (
-        <form onSubmit={handleSubmit}>
-            Email: <input type="text" ref={email} /><br />
-            Password: <input type="password" ref={password} /><br />
-            <input type="submit" value="Submit" />
-        </form>
+        <>
+            <h2>Registration</h2>
+            <form onSubmit={handleSubmit}>
+                Email: <input type="text" ref={email} /><br />
+                Password: <input type="password" ref={password} /><br />
+                <input type="submit" value="Submit" />
+            </form>
+        </>
 	)
 };
 
